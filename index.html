@@ -1,12 +1,510 @@
-html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hire Neil Chavez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --bg-hover: #161616;
+            --border: #222222;
+            --border-subtle: #1a1a1a;
+            --text-primary: #f0ede8;
+            --text-secondary: #888880;
+            --text-muted: #444440;
+            --accent: #e8d5b0;
+            --accent-warm: #c9a96e;
+            --accent-glow: rgba(201, 169, 110, 0.15);
+            --green: #4a7c59;
+            --green-light: #6aab7a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* Grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.4;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid var(--border-subtle);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            margin-bottom: 24px;
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(42px, 8vw, 68px);
+            font-weight: 400;
+            line-height: 1.05;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 17px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-style: italic;
+            font-family: 'DM Serif Display', serif;
+            margin-bottom: 32px;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-links a {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header-links a:hover {
+            color: var(--accent-warm);
+        }
+
+        .header-links a::before {
+            content: '↗';
+            font-size: 10px;
+        }
+
+        /* Sections */
+        section {
+            padding: 56px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 15.5px;
+            line-height: 1.8;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        em {
+            color: var(--text-primary);
+            font-style: italic;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.05em;
+        }
+
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            gap: 2px;
+        }
+
+        .skill-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 20px 24px;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .skill-item:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .skill-item:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+
+        .skill-item:hover {
+            background: var(--bg-hover);
+            border-color: #2a2a2a;
+        }
+
+        .skill-name {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-warm);
+            margin-bottom: 8px;
+        }
+
+        .skill-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Currently building */
+        .building-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(74, 124, 89, 0.1);
+            border: 1px solid rgba(106, 171, 122, 0.2);
+            color: var(--green-light);
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .building-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--green-light);
+            border-radius: 50%;
+            animation: pulse 2s ease infinite;
+        }
+
+        .building-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        /* Note card */
+        .note-card {
+            background: var(--accent-glow);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-top: 24px;
+        }
+
+        .note-card p {
+            font-size: 14px;
+            color: var(--accent);
+            opacity: 0.85;
+            margin: 0;
+            font-style: italic;
+        }
+
+        /* Find me */
+        .find-me-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .find-me-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .find-me-link:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .find-me-link:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+
+        .find-me-link:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: #2a2a2a;
+        }
+
+        .find-me-link .icon {
+            font-size: 18px;
+            width: 28px;
+            text-align: center;
+        }
+
+        .find-me-link .label {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        .find-me-link .arrow {
+            margin-left: auto;
+            color: var(--text-muted);
+            font-size: 12px;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .find-me-link:hover .arrow {
+            transform: translate(2px, -2px);
+            color: var(--accent-warm);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(2) { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(3) { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(4) { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(5) { animation-delay: 0.5s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(6) { animation-delay: 0.6s; opacity: 0; animation-fill-mode: forwards; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header { padding: 48px 0 40px; }
+            section { padding: 40px 0; }
+            .header-links { gap: 14px; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hi, I'm Neil 👋</h1>
-    <p>This page is under construction. Check back soon.</p>
+    <div class="container">
+
+        <header>
+            <h1>Hey, I'm Neil 👋</h1>
+            <p class="tagline">Miami kid, New Yorker by choice, infrastructure engineer by a series of happy accidents.</p>
+            <div class="header-links">
+                <a href="https://www.linkedin.com/in/neilchvz/" target="_blank">LinkedIn</a>
+                <a href="https://www.kofotografi.com/" target="_blank">Photography</a>
+                <a href="https://github.com/neilchvz" target="_blank">GitHub</a>
+            </div>
+        </header>
+
+        <section>
+            <div class="section-label">Origin story</div>
+            <h2>How I got here</h2>
+            <p>My tech journey started with fixing copiers. Seriously. I was a copier technician and solutions specialist for an MPS company and somewhere between tearing apart machines and talking to clients about their workflows, something clicked. I liked solving problems. I liked making things work better.</p>
+            <p>I originally wanted to play saxophone, become an animator working on hit Japanese animes, and make things with my hands. Turns out I still do, just with infrastructure instead of ink.</p>
+            <p>I moved to New York deliberately, chose it over San Francisco because of the timezone and because my twin brother beat me there by a few months. I wanted to be somewhere that would push me and NYC delivered.</p>
+            <p>From there I went the MSP route on purpose. No degree, so I needed somewhere that would give me a chance and throw me in the deep end. MSPs do both. I started at the helpdesk and worked my way up to Director of Projects and Implementations, not by going to school, but by breaking things and fixing them until I understood them.</p>
+            <p>One thing worth clarifying about that director title, my title changed but the hands-on work never did. My current department is a department of one where I am judge, jury, and executioner, everything from project managing to execution. MSPs are funny like that, you wear multiple hats even if you're a director. That said I am still very much in the trenches every day, acting as Senior Systems Engineer, Lead Security Engineer, and L3 escalation point.</p>
+        </section>
+
+        <section>
+            <div class="section-label">Direction</div>
+            <h2>What I actually want to do</h2>
+            <p>Here's the thing about MSPs, they're a great place to learn everything and a hard place to grow forever. I hit a ceiling. Not a technical one, a structural one. The only path forward was management and honestly? I don't want to manage people. I want to master the craft.</p>
+            <p>That's when I found the IC path. Senior > Staff > Principal > Distinguished. You can go deep without going into people management. That realization changed everything.</p>
+            <p>It also led me to IaC. Before that I knew automation as Rewst, ImmyBot, MDM workflows, reactive, step by step, command driven. Then I found Terraform and the declarative model and it just made sense. Instead of telling infrastructure what to do, you tell it what it needs to be. It figures out the rest. Less human error, less wasted time on the mundane, more energy on the things that actually matter.</p>
+        </section>
+
+        <section>
+            <div class="section-label">Working with me</div>
+            <h2>What I'm like</h2>
+            <p>Ambitious and stubborn, but the good kind of stubborn. The kind that won't drop a problem until it's solved properly. Laid back enough that I won't make a crisis out of everything.</p>
+            <p>I learn by doing. Always have. Give me something real to work on and I'll figure it out. Give me a classroom and I'll fall asleep.</p>
+            <p>I believe humans make errors and systems shouldn't depend on humans not making them. I believe automation isn't about replacing effort, it's about redirecting it toward things worth the effort.</p>
+        </section>
+
+        <section>
+            <div class="section-label">Skills & tools</div>
+            <h2>What I work with</h2>
+            <p>Rather than a tool list, here's how I think about my skills, by domain. Tools change. Concepts don't.</p>
+
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-name">Identity & Access Management</div>
+                    <p class="skill-desc">Entra ID (deep), conditional access, MFA (Duo, M365, Google), SSO integrations, BYOD & app protection policies.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Device Management & MDM</div>
+                    <p class="skill-desc">Intune, Addigy (certified), Autopilot, Windows and macOS.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Microsoft 365 & Azure</div>
+                    <p class="skill-desc">Deep. Administration, Azure infrastructure (VNets, VMs, storage containers, SFTP layer), Purview, DLP, retention, eDiscovery, IAM. This is my home turf.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Google Workspace</div>
+                    <p class="skill-desc">Administration and deep knowledge, migrations, configuration, compliance.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Networking</div>
+                    <p class="skill-desc">Meraki certified. SonicWall, Fortigate exposure. Strong L2/L3 fundamentals.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Operating Systems</div>
+                    <p class="skill-desc">Daily driver is macOS for personal and Windows OS for work, equally comfortable in both.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Security</div>
+                    <p class="skill-desc">NIST frameworks, security risk assessments, email security (Defender, Mimecast, SpamTitan), ITDR, DNS filtering, PAM (AutoElevate).</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Data & Compliance</div>
+                    <p class="skill-desc">Archive journaling, Global Relay, retention policies across M365 and Google Workspace, eDiscovery.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Migrations & Implementations</div>
+                    <p class="skill-desc">Exchange to Exchange Online, M365 and Google Workspace (both directions), file server to SharePoint, Egnyte/Dropbox to SharePoint, network and office buildouts, Azure buildouts.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Backup & Recovery</div>
+                    <p class="skill-desc">Veeam, Datto BCDR, Datto SaaS, Cloudberry, AWS S3.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Automation & Scripting</div>
+                    <p class="skill-desc">PowerShell, terminal, MDM workflows, RMM scripting (ConnectWise Automate).</p>
+                </div>
+            </div>
+
+            <div class="building-tags">
+                <span class="building-tag">Terraform</span>
+                <span class="building-tag">Git / GitHub</span>
+                <span class="building-tag">Python</span>
+            </div>
+            <p style="margin-top: 12px; font-size: 13px; color: var(--text-muted); font-family: 'DM Mono', monospace; letter-spacing: 0.03em;">↑ actively building toward IaC and the Staff IC path</p>
+
+            <div class="note-card">
+                <p>A note on tools: I've listed specific products where relevant but I hire myself on concepts, not logos. The vendor changes, the principles don't. Put Okta in front of me and I'll be productive fast. If you need Jamf experience and I have Addigy, that's an afternoon of reading, not a skills gap. The same goes for any other tool in a mature domain I already understand deeply.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">Find me</div>
+            <h2>Get in touch</h2>
+            <div class="find-me-links">
+                <a class="find-me-link" href="https://www.linkedin.com/in/neilchvz/" target="_blank">
+                    <span class="icon">💼</span>
+                    <span class="label">LinkedIn</span>
+                    <span class="arrow">↗</span>
+                </a>
+                <a class="find-me-link" href="https://github.com/neilchvz" target="_blank">
+                    <span class="icon">💻</span>
+                    <span class="label">GitHub — terraform-learning</span>
+                    <span class="arrow">↗</span>
+                </a>
+                <a class="find-me-link" href="https://www.kofotografi.com/" target="_blank">
+                    <span class="icon">📸</span>
+                    <span class="label">kofotografi.com</span>
+                    <span class="arrow">↗</span>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-label">Human stuff</div>
+            <h2>Outside of work</h2>
+            <p>I shoot photography 📸, started because an ex once looked at my photos and said <em>"wait, dang, you're actually not that bad, I'd definitely pay for this after the family discount."</em> She was right. I grow plants 🌿 and I'm actively working on making my Brooklyn living room as much of a jungle as I can. I play guitar and don't play sax all that much anymore, although it's part of my new year's resolution every year. I'm still that artistic kid from Miami, just with a terminal window open in the background.</p>
+        </section>
+
+        <footer>
+            <p>Built with Git & GitHub Pages · neilchvz · NYC</p>
+        </footer>
+
+    </div>
 </body>
 </html>
