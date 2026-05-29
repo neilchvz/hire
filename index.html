@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me — Neil</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230a0a0a'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='Georgia,serif' font-weight='400' fill='%23c9a96e'>N</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230a0a0a'/><text y='68' x='50' text-anchor='middle' font-size='52' font-family='Georgia,serif' font-weight='400' fill='%23c9a96e'>&gt;_</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -25,15 +25,8 @@
             --green-light: #6aab7a;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg);
@@ -45,7 +38,6 @@
             overflow-x: hidden;
         }
 
-        /* Grain overlay */
         body::before {
             content: '';
             position: fixed;
@@ -57,28 +49,11 @@
             opacity: 0.4;
         }
 
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-        /* Header */
         header {
             padding: 80px 0 60px;
-            border-bottom: 1px solid var(--border-subtle);
             animation: fadeUp 0.8s ease forwards;
-        }
-
-        .eyebrow {
-            font-family: 'DM Mono', monospace;
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--accent-warm);
-            margin-bottom: 24px;
-            opacity: 0.8;
         }
 
         h1 {
@@ -100,11 +75,7 @@
             margin-bottom: 32px;
         }
 
-        .header-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+        .header-links { display: flex; gap: 20px; flex-wrap: wrap; }
 
         .header-links a {
             font-family: 'DM Mono', monospace;
@@ -118,16 +89,9 @@
             gap: 6px;
         }
 
-        .header-links a:hover {
-            color: var(--accent-warm);
-        }
+        .header-links a:hover { color: var(--accent-warm); }
+        .header-links a::before { content: '↗'; font-size: 10px; }
 
-        .header-links a::before {
-            content: '↗';
-            font-size: 10px;
-        }
-
-        /* Sections */
         section {
             padding: 56px 0;
             border-bottom: 1px solid var(--border-subtle);
@@ -136,6 +100,10 @@
 
         section:last-child {
             border-bottom: none;
+        }
+
+        .section-inner {
+            padding-bottom: 0;
         }
 
         .section-label {
@@ -164,9 +132,7 @@
             line-height: 1.8;
         }
 
-        p:last-child {
-            margin-bottom: 0;
-        }
+        p:last-child { margin-bottom: 0; }
 
         em {
             color: var(--text-primary);
@@ -175,11 +141,14 @@
             font-size: 1.05em;
         }
 
-        /* Skills grid */
-        .skills-grid {
-            display: grid;
-            gap: 2px;
+        .aside-note {
+            color: var(--accent-warm);
+            font-style: italic;
+            font-weight: 300;
         }
+
+        /* Skills grid */
+        .skills-grid { display: grid; gap: 2px; margin-bottom: 32px; }
 
         .skill-item {
             background: var(--bg-card);
@@ -188,13 +157,8 @@
             transition: background 0.2s ease, border-color 0.2s ease;
         }
 
-        .skill-item:first-child {
-            border-radius: 8px 8px 0 0;
-        }
-
-        .skill-item:last-child {
-            border-radius: 0 0 8px 8px;
-        }
+        .skill-item:first-child { border-radius: 8px 8px 0 0; }
+        .skill-item:last-child { border-radius: 0 0 8px 8px; }
 
         .skill-item:hover {
             background: var(--bg-hover);
@@ -218,7 +182,50 @@
             margin: 0;
         }
 
-        /* Currently building */
+        /* Workbench */
+        .workbench-block {
+            margin-top: 32px;
+            margin-bottom: 28px;
+        }
+
+        .workbench-divider-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .workbench-divider-row::before,
+        .workbench-divider-row::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(106, 171, 122, 0.2);
+        }
+
+        .workbench-label-card {
+            display: inline-flex;
+            align-items: center;
+            background: transparent;
+            border: 1px solid rgba(106, 171, 122, 0.35);
+            color: var(--green-light);
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .workbench-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
         .building-tag {
             display: inline-flex;
             align-items: center;
@@ -231,8 +238,6 @@
             letter-spacing: 0.08em;
             padding: 6px 12px;
             border-radius: 4px;
-            margin-right: 8px;
-            margin-bottom: 8px;
         }
 
         .building-tag::before {
@@ -242,12 +247,7 @@
             background: var(--green-light);
             border-radius: 50%;
             animation: pulse 2s ease infinite;
-        }
-
-        .building-tags {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 16px;
+            flex-shrink: 0;
         }
 
         /* Note card */
@@ -256,7 +256,7 @@
             border: 1px solid rgba(201, 169, 110, 0.2);
             border-radius: 8px;
             padding: 20px 24px;
-            margin-top: 24px;
+            margin-top: 8px;
         }
 
         .note-card p {
@@ -268,11 +268,7 @@
         }
 
         /* Find me */
-        .find-me-links {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
+        .find-me-links { display: flex; flex-direction: column; gap: 2px; }
 
         .find-me-link {
             display: flex;
@@ -287,13 +283,8 @@
             transition: all 0.2s ease;
         }
 
-        .find-me-link:first-child {
-            border-radius: 8px 8px 0 0;
-        }
-
-        .find-me-link:last-child {
-            border-radius: 0 0 8px 8px;
-        }
+        .find-me-link:first-child { border-radius: 8px 8px 0 0; }
+        .find-me-link:last-child { border-radius: 0 0 8px 8px; }
 
         .find-me-link:hover {
             background: var(--bg-hover);
@@ -301,11 +292,7 @@
             border-color: #2a2a2a;
         }
 
-        .find-me-link .icon {
-            font-size: 18px;
-            width: 28px;
-            text-align: center;
-        }
+        .find-me-link .icon { font-size: 18px; width: 28px; text-align: center; }
 
         .find-me-link .label {
             font-family: 'DM Mono', monospace;
@@ -326,10 +313,7 @@
         }
 
         /* Footer */
-        footer {
-            padding: 40px 0;
-            text-align: center;
-        }
+        footer { padding: 40px 0; text-align: center; }
 
         footer p {
             font-family: 'DM Mono', monospace;
@@ -337,18 +321,26 @@
             color: var(--text-muted);
             letter-spacing: 0.1em;
             margin: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 13px;
+            background: var(--accent-warm);
+            border-radius: 1px;
+            opacity: 0.6;
+            animation: blink 1.1s step-end infinite;
+            vertical-align: middle;
         }
 
         /* Animations */
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(16px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes pulse {
@@ -356,17 +348,23 @@
             50% { opacity: 0.3; }
         }
 
-        section:nth-child(1) { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; }
-        section:nth-child(2) { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; }
-        section:nth-child(3) { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; }
-        section:nth-child(4) { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; }
-        section:nth-child(5) { animation-delay: 0.5s; opacity: 0; animation-fill-mode: forwards; }
-        section:nth-child(6) { animation-delay: 0.6s; opacity: 0; animation-fill-mode: forwards; }
+        @keyframes blink {
+            0%, 49% { opacity: 0.6; }
+            50%, 100% { opacity: 0; }
+        }
 
-        /* Responsive */
+        section:nth-child(2) { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(3) { animation-delay: 0.15s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(4) { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(5) { animation-delay: 0.25s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(6) { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(7) { animation-delay: 0.35s; opacity: 0; animation-fill-mode: forwards; }
+        section:nth-child(8) { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; }
+
         @media (max-width: 600px) {
             header { padding: 48px 0 40px; }
-            section { padding: 40px 0; }
+            section { padding-top: 40px; }
+            .section-inner { padding-bottom: 40px; }
             .header-links { gap: 14px; }
         }
     </style>
@@ -385,131 +383,164 @@
             </div>
         </header>
 
+        <!-- 1. How I got here -->
         <section>
-            <div class="section-label">Origin story</div>
-            <h2>How I got here</h2>
-            <p>My tech journey started with fixing copiers. Seriously. I was a copier technician and solutions specialist for an MPS company and somewhere between tearing apart machines and talking to clients about their workflows, something clicked. I liked solving problems. I liked making things work better.</p>
-            <p>I originally wanted to play saxophone, become an animator working on hit Japanese animes, and make things with my hands. Turns out I still do, just with infrastructure instead of ink.</p>
-            <p>I moved to New York deliberately, chose it over San Francisco because of the timezone and because my twin brother beat me there by a few months. I wanted to be somewhere that would push me and NYC delivered.</p>
-            <p>From there I went the MSP route on purpose. No degree, so I needed somewhere that would give me a chance and throw me in the deep end. MSPs do both. I started at the helpdesk and worked my way up to Director of Projects and Implementations, not by going to school, but by breaking things and fixing them until I understood them.</p>
-            <p>One thing worth clarifying about that director title, my title changed but the hands-on work never did. I still design and build every day. The Director hat just means I also own the outcomes.</p>
+            
+                <div class="section-label">Origin story</div>
+                <h2>How I got here</h2>
+                <p>My tech journey started with fixing copiers. Seriously. I was a copier technician and solutions specialist for an MPS company and somewhere between tearing apart machines and talking to clients about their workflows, something clicked. I liked solving problems. I liked making things work better.</p>
+                <p>Originally I wanted to make things: make music with my saxophone and make cool Japanese animes as an animator. As it turns out I still do, it's just with infrastructure instead of ink.</p>
+                <p>I moved to New York deliberately, choosing it over San Francisco because of the "if I can make it here I can make it anywhere" sentiment. I wanted to be somewhere that would challenge and push me and NYC delivered. <span class="aside-note">(My twin brother beating me there by a few months didn't hurt either, twin competition is strong.)</span></p>
+                <p>My career move to an MSP that followed was no different. MSPs are notorious "warzones" where only the strongest (or most crazy depending on how you think about it) thrive. They'll throw you into the deep end without a life jacket to sink or swim. And for someone like me, who learns "out in the field" and not in a classroom, that's exactly what I needed. MSPs don't care about your diploma, they care whether you can solve the problem in front of you. And luckily for me I could do just that, no degree required. From helpdesk to Director, all self taught.</p>
+                <p>And while my title may have changed, the hands-on work and the drive to widen my bench never did. I still design and build every day. The Director hat just means I also own the outcomes.</p>
+            
         </section>
 
+        <!-- 2. What I actually want to do -->
         <section>
-            <div class="section-label">Direction</div>
-            <h2>What I actually want to do</h2>
-            <p>Here's the thing about MSPs, they're a great place to learn everything and a hard place to grow forever. I hit a ceiling. Not a technical one, a structural one. The only path forward was management and honestly? I don't want to manage people. I want to master the craft.</p>
-            <p>That's when I found the IC path. Senior > Staff > Principal > Distinguished. You can go deep without going into people management.</p>
-            <p>It also led me to IaC. Before that I knew automation as Rewst, ImmyBot, MDM workflows, reactive, step by step, command driven. Then I found Terraform and the declarative model and it just made sense. Instead of telling infrastructure what to do, you tell it what it needs to be. It figures out the rest. Less human error, less wasted time on the mundane, more energy on the things that actually matter.</p>
+            
+                <div class="section-label">Direction</div>
+                <h2>What I actually want to do</h2>
+                <p>Here's the thing about MSPs, they're a great place to learn everything and a hard place to grow forever. You hit a ceiling, and not a technical one but a structural one. The only path forward is management and honestly? I don't want to manage people. I want to continue mastering the craft.</p>
+                <p>Advancing doesn't always mean management. You can go deep without going into people management. Senior > Staff > Principal > Distinguished.</p>
+                <p>There's something about being truly deep in a craft that I genuinely enjoy. The kind of deep where you've seen enough failure modes to know where something will break before it does. That's the version of the engineer I'm working towards.</p>
+            
         </section>
 
+        <!-- 3. What I'm like -->
         <section>
-            <div class="section-label">Working with me</div>
-            <h2>What I'm like</h2>
-            <p>Ambitious and stubborn, but the good kind of stubborn. The kind that won't drop a problem until it's solved properly. Laid back enough that I won't make a crisis out of everything.</p>
-            <p>I learn by doing. Always have. Give me something real to work on and I'll figure it out. Give me a classroom and I'll fall asleep.</p>
-            <p>I believe humans make errors and systems shouldn't depend on humans not making them. I believe automation isn't about replacing effort, it's about redirecting it toward things worth the effort.</p>
+            
+                <div class="section-label">Working with me</div>
+                <h2>What I'm like</h2>
+                <p>Ambitious and stubborn, but the good kind of stubborn. The kind that won't drop a problem until it's solved properly. Laid back enough that I won't make a crisis out of everything.</p>
+                <p>I learn by doing. Give me something real to work on and I'll figure it out. Give me a classroom and I'll fall asleep.</p>
+            
         </section>
 
+        <!-- 4. Automation -->
         <section>
-            <div class="section-label">Skills & tools</div>
-            <h2>What I work with</h2>
-            <p>Rather than a tool list, here's how I think about my skills, by domain. Tools change. Concepts don't.</p>
-
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <div class="skill-name">Identity & Access Management</div>
-                    <p class="skill-desc">Entra ID (deep), conditional access, MFA (Duo, M365, Google), SSO integrations, BYOD & app protection policies.</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Device Management & MDM</div>
-                    <p class="skill-desc">Intune, Addigy (certified), Autopilot, Windows and macOS.</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Microsoft 365 & Azure</div>
-                    <p class="skill-desc">Deep. Administration, Azure infrastructure (VNets, VMs, storage containers, SFTP layer), Purview, DLP, retention, eDiscovery, IAM. This is my home turf.</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Google Workspace</div>
-                    <p class="skill-desc">Deep. 30+ tenant deployments, migrations (both directions with M365), configuration, compliance, and administration at scale.</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Networking</div>
-                    <p class="skill-desc">Meraki certified. SonicWall, Fortigate exposure. Strong L2/L3 fundamentals.</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Operating Systems</div>
-                    <p class="skill-desc">Daily driver is macOS for personal and Windows OS for work, equally comfortable in both.</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Security</div>
-                    <p class="skill-desc">NIST frameworks, security risk assessments, email security (Defender, Mimecast, SpamTitan), ITDR, DNS filtering, PAM (AutoElevate).</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Data & Compliance</div>
-                    <p class="skill-desc">Archive journaling, Global Relay, retention policies across M365 and Google Workspace, eDiscovery.</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Migrations & Implementations</div>
-                    <p class="skill-desc">Exchange to Exchange Online, M365 and Google Workspace (both directions), file server to SharePoint, Egnyte/Dropbox to SharePoint, network and office buildouts, Azure buildouts.</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Backup & Recovery</div>
-                    <p class="skill-desc">Veeam, Datto BCDR, Datto SaaS, Cloudberry, AWS S3.</p>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">Automation & Scripting</div>
-                    <p class="skill-desc">PowerShell, Bash, MDM workflows, RMM scripting (ConnectWise Automate).</p>
-                </div>
-            </div>
-
-            <div class="building-tags">
-                <span class="building-tag">Terraform</span>
-                <span class="building-tag">Git / GitHub</span>
-                <span class="building-tag">Python</span>
-            </div>
-            <p style="margin-top: 12px; font-size: 13px; color: var(--text-muted); font-family: 'DM Mono', monospace; letter-spacing: 0.03em;">↑ actively building toward IaC and the Staff IC path</p>
-
-            <div class="note-card">
-                <p>A note on tools: I've listed specific products where relevant but I hire myself on concepts, not logos. The vendor changes, the principles don't. Put Okta in front of me and I'll be productive fast. If you need Jamf experience and I have Addigy, that's an afternoon of reading, not a skills gap. The same goes for any other tool in a mature domain I already understand deeply.</p>
-            </div>
+            
+                <div class="section-label">Automation</div>
+                <h2>What I'm building towards</h2>
+                <p>Automation has always been an interest of mine, with a goal to automate as much as possible. But I always found it a bit inefficient and felt it still left room for errors.</p>
+                <p>Digging deeper I found a much more efficient approach, Infrastructure as Code (IaC) and the declarative model. IaC changed how I think about automation entirely. Before this, I knew automation as a reactive, step by step and command driven process. It was better than manual but still had a bit of the mundane.</p>
+                <p>With IaC, instead of telling infrastructure what to do, you tell it what it needs to be and it figures out the rest. No mundane repetition, no human in the middle passing wrong steps. I believe humans make errors and systems shouldn't depend on humans not making them. When humans are out of the critical path, errors stop being inevitable.</p>
+                <p>Automation isn't about replacing effort, it's about redirecting it toward things worth the effort.</p>
+            
         </section>
 
+        <!-- 5. Skills & tools -->
         <section>
-            <div class="section-label">Find me</div>
-            <h2>Get in touch</h2>
-            <div class="find-me-links">
-                <a class="find-me-link" href="https://www.linkedin.com/in/neilchvz/" target="_blank">
-                    <span class="icon">💼</span>
-                    <span class="label">LinkedIn</span>
-                    <span class="arrow">↗</span>
-                </a>
-                <a class="find-me-link" href="mailto:neilchvz.it@gmail.com">
-                    <span class="icon">✉️</span>
-                    <span class="label">neilchvz.it@gmail.com</span>
-                    <span class="arrow">↗</span>
-                </a>
-                <a class="find-me-link" href="https://github.com/neilchvz" target="_blank">
-                    <span class="icon">💻</span>
-                    <span class="label">GitHub</span>
-                    <span class="arrow">↗</span>
-                </a>
-                <a class="find-me-link" href="https://www.kofotografi.com/" target="_blank">
-                    <span class="icon">📸</span>
-                    <span class="label">kofotografi.com</span>
-                    <span class="arrow">↗</span>
-                </a>
-            </div>
+            
+                <div class="section-label">Skills & tools</div>
+                <h2>What I work with</h2>
+                <p>Rather than a tool list, here's how I think about my skills, by domain. Tools change. Concepts don't.</p>
+
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-name">Identity & Access Management</div>
+                        <p class="skill-desc">Entra ID (deep), conditional access, MFA (Duo, M365, Google), SSO integrations, BYOD & app protection policies.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Device Management & MDM</div>
+                        <p class="skill-desc">Intune, Addigy (certified), Autopilot, Windows and macOS.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Microsoft 365 & Azure</div>
+                        <p class="skill-desc">Deep. Administration, Azure infrastructure (VNets, VMs, storage containers, SFTP layer), Purview, DLP, retention, eDiscovery, IAM. This is my home turf.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Google Workspace</div>
+                        <p class="skill-desc">Deep. 30+ tenant deployments, migrations (both directions with M365), configuration, compliance, and administration at scale.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Networking</div>
+                        <p class="skill-desc">Meraki certified. SonicWall, Fortigate exposure. Strong L2/L3 fundamentals.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Operating Systems</div>
+                        <p class="skill-desc">Daily driver is macOS for personal and Windows OS for work, equally comfortable in both.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Security</div>
+                        <p class="skill-desc">NIST frameworks, security risk assessments, email security (Defender, Mimecast, SpamTitan), ITDR, DNS filtering, PAM (AutoElevate).</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Data & Compliance</div>
+                        <p class="skill-desc">Archive journaling, Global Relay, retention policies across M365 and Google Workspace, eDiscovery.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Migrations & Implementations</div>
+                        <p class="skill-desc">Exchange to Exchange Online, M365 and Google Workspace (both directions), file server to SharePoint, Egnyte/Dropbox to SharePoint, network and office buildouts, Azure buildouts.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Backup & Recovery</div>
+                        <p class="skill-desc">Veeam, Datto BCDR, Datto SaaS, Cloudberry, AWS S3.</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Automation & Scripting</div>
+                        <p class="skill-desc">PowerShell, Bash, MDM workflows, RMM scripting (ConnectWise Automate).</p>
+                    </div>
+                </div>
+
+                <div class="workbench-block">
+                    <div class="workbench-divider-row">
+                        <span class="workbench-label-card">On the workbench</span>
+                    </div>
+                    <div class="workbench-tags-row">
+                        <span class="building-tag">Terraform</span>
+                        <span class="building-tag">Git / GitHub</span>
+                        <span class="building-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="note-card">
+                    <p>A note on tools: I've listed specific products where relevant but I hire myself on concepts, not logos. The vendors change but the principles don't. Put Okta in front of me and I'll be productive fast. If you need Jamf experience and I have Addigy, that's an afternoon of reading, not a skill gap. The same goes for any other tool in a domain I already understand deeply.</p>
+                </div>
+            
         </section>
 
+        <!-- 6. Find me -->
         <section>
-            <div class="section-label">Human stuff</div>
-            <h2>Outside of work</h2>
-            <p>I shoot photography 📸, started because an ex once looked at my photos and said <span style="color: var(--accent-warm); font-style: italic; font-weight: 300;">"wait, dang, you're actually not that bad, I'd definitely pay for this after the family discount."</span> She was right. I grow plants 🌿 and I'm actively working on making my Brooklyn living room as much of a jungle as I can. I play guitar and don't play sax all that much anymore, although it's part of my new year's resolution every year. I'm still that artistic kid from Miami, just with a terminal window open in the background.</p>
+            
+                <div class="section-label">Find me</div>
+                <h2>Get in touch</h2>
+                <div class="find-me-links">
+                    <a class="find-me-link" href="https://www.linkedin.com/in/neilchvz/" target="_blank">
+                        <span class="icon">💼</span>
+                        <span class="label">LinkedIn</span>
+                        <span class="arrow">↗</span>
+                    </a>
+                    <a class="find-me-link" href="mailto:neilchvz.it@gmail.com">
+                        <span class="icon">✉️</span>
+                        <span class="label">neilchvz.it@gmail.com</span>
+                        <span class="arrow">↗</span>
+                    </a>
+                    <a class="find-me-link" href="https://github.com/neilchvz" target="_blank">
+                        <span class="icon">💻</span>
+                        <span class="label">GitHub</span>
+                        <span class="arrow">↗</span>
+                    </a>
+                    <a class="find-me-link" href="https://www.kofotografi.com/" target="_blank">
+                        <span class="icon">📸</span>
+                        <span class="label">kofotografi.com</span>
+                        <span class="arrow">↗</span>
+                    </a>
+                </div>
+            
+        </section>
+
+        <!-- 7. Outside of work -->
+        <section>
+            
+                <div class="section-label">Human stuff</div>
+                <h2>Outside of work</h2>
+                <p>I shoot photography 📸, started because an ex once looked at my photos and said <span style="color: var(--accent-warm); font-style: italic; font-weight: 300;">"wait, dang, you're actually not that bad, I'd definitely pay for this after the family discount."</span> She was right. I grow plants 🌿 and I'm actively working on making my Brooklyn living room as much of a jungle as I can. I play guitar and don't play sax all that much anymore, although it's part of my new year's resolution every year. I'm still that artistic kid from Miami, just with a terminal window open in the background.</p>
+            
         </section>
 
         <footer>
-            <p>Built with Git & GitHub Pages · neilchvz · NYC</p>
+            <p>Built with Git & GitHub Pages · neilchvz · NYC <span class="footer-cursor"></span></p>
         </footer>
 
     </div>
