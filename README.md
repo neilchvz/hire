@@ -1,9 +1,11 @@
 # About Me — Neil
 
-Personal hire page built with HTML, CSS, and GitHub Pages.
+Source code for my personal hire page.
 
-→ [neilchvz.github.io/hire](https://neilchvz.github.io/hire)
+→ Live at [neilchvz.github.io/hire](https://neilchvz.github.io/hire)
 
-## About me
+Senior Infrastructure Engineer · Creator of things.
 
-Senior Infrastructure Engineer transitioning from MSP to SaaS, with deep experience in Azure, M365, Google Workspace, identity, security, and migrations. Currently building toward IaC and modern DevOps practices.
+Built with HTML, CSS, and GitHub Pages.
+
+<!-- >_ curious aren't we? respect. -->
